@@ -1,0 +1,26 @@
+package org.jsp.adminhospital.service;
+
+import org.jsp.adminhospital.dao.AdminDao;
+import org.jsp.adminhospital.dto.Admin;
+import org.jsp.adminhospital.dto.ResponseStructure;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AdminService {
+
+	@Autowired
+	public AdminDao adao;
+	
+	public ResponseEntity<ResponseStructure<Admin>> saveAdmin(Admin a) {
+		ResponseStructure<Admin> structure=new ResponseStructure<>();
+		structure.setMessage("Admin saved successfully....");
+		structure.setData(adao.saveAdmin(a));
+		structure.setStatusCode(HttpStatus.CREATED.value());
+		return new ResponseEntity<ResponseStructure<Admin>>(structure, HttpStatus.CREATED);
+	}
+	
+	
+}
