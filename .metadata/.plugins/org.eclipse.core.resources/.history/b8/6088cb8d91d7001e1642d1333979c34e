@@ -1,0 +1,5 @@
+package org.jsp.adminhospital.repository;
+
+public interface AdminRepository {
+
+}
