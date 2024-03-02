@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -31,5 +32,17 @@ public class HospitalApp {
 	public ResponseEntity<ResponseStructure<Hospital>> findbyid (@PathVariable int id){
 		return service.findById(id);	
 	}
+	@PostMapping("/verify-by-phone")
+	public ResponseEntity<ResponseStructure<Hospital>> verifyByPhone(@RequestParam long phone,
+			@RequestParam String password) {
+		return service.verify(phone, password);
+	}
+
+	@PostMapping("/verify-by-email")
+	public ResponseEntity<ResponseStructure<Hospital>> verifyByEmail(@RequestParam String email,
+			@RequestParam String password) {
+		return service.verify(email, password);
+	}
+	
 	
 }
