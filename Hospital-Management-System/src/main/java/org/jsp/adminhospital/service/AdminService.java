@@ -40,7 +40,7 @@ public class AdminService {
 			structure.setStatusCode(HttpStatus.ACCEPTED.value());
 			return new ResponseEntity<ResponseStructure<Admin>>(structure, HttpStatus.ACCEPTED);
 		}
-		throw new IdNotFoundException();
+		throw new IdNotFoundException("Invalid ID");
 	}
 	
 	public ResponseEntity<ResponseStructure<Admin>> findById(int id){
@@ -52,7 +52,7 @@ public class AdminService {
 			structure.setStatusCode(HttpStatus.OK.value());
 			return new ResponseEntity<ResponseStructure<Admin>>(structure, HttpStatus.OK);
 		}
-		throw new IdNotFoundException();
+		throw new IdNotFoundException("Invalid ID");
 	}
 	
 	public ResponseEntity<ResponseStructure<Admin>> verifyByPhone(long phone, String password){
