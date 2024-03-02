@@ -3,7 +3,6 @@ package org.jsp.adminhospital.service;
 import java.util.Optional;
 
 import org.jsp.adminhospital.dao.HospitalDao;
-import org.jsp.adminhospital.dto.Admin;
 import org.jsp.adminhospital.dto.Hospital;
 import org.jsp.adminhospital.dto.ResponseStructure;
 import org.jsp.adminhospital.exception.IdNotFoundException;
