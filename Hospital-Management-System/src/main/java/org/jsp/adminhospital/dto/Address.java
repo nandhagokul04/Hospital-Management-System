@@ -1,9 +1,19 @@
 package org.jsp.adminhospital.dto;
 
-public class Address {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
+public class Address {
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+		@Column(nullable = false)
 	private String street, city, landmark, building_name, state, country;
+		@Column(nullable = false)
 	private int pincode;
 
 	public int getId() {
